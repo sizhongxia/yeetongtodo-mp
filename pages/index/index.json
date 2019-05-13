@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "index": "/pages/components/index/index",
+    "create": "/pages/components/create/create",
+    "about": "/pages/components/about/about"
+  }
+}

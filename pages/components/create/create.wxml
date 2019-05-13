@@ -1,0 +1,5 @@
+<cu-custom bgColor="bg-gradual-red" isBack="{{false}}"><view slot="content">创建计划</view></cu-custom>
+
+
+
+<view class='cu-tabbar-height'></view>
