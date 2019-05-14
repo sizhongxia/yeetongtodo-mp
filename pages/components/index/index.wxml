@@ -1,49 +1,59 @@
-<cu-custom bgColor="bg-gradual-orange" isBack="{{false}}">
+<cu-custom bgColor="bg-gradual-orange" isBack="{{false}}" style="height:{{CustomBar}}px;">
   <view slot="content">我的计划</view>
 </cu-custom>
-<view>
-  <scroll-view scroll-x class="bg-white nav text-center">
-    <view class="cu-item {{0==tabCur?'text-blue cur':''}}" bindtap="tabSelect" data-id="0" data-status='R'>
-      进行中
-    </view>
-    <view class="cu-item {{1==tabCur?'text-blue cur':''}}" bindtap="tabSelect" data-id="1" data-status='Y'>
-      已完成
-    </view>
-    <view class="cu-item {{2==tabCur?'text-blue cur':''}}" bindtap="tabSelect" data-id="2" data-status='N'>
-      已取消
-    </view>
-  </scroll-view>
 
-  <view class='height1'></view>
+<scroll-view scroll-x class="bg-white nav text-center fixed" style="top:{{CustomBar}}px;height: 96rpx;">
+  <view class="cu-item {{0==tabCur?'text-blue cur':''}}" bindtap="tabSelect" data-id="0" data-status='R'>
+    进行中
+  </view>
+  <view class="cu-item {{1==tabCur?'text-blue cur':''}}" bindtap="tabSelect" data-id="1" data-status='Y'>
+    已完成
+  </view>
+  <view class="cu-item {{2==tabCur?'text-blue cur':''}}" bindtap="tabSelect" data-id="2" data-status='N'>
+    已取消
+  </view>
+</scroll-view>
 
-  <view class="cu-list menu-avatar">
-    <block wx:for="{{plans}}" wx:key="planId">
-      <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" bindtouchstart="listTouchStart" bindtouchmove="listTouchMove" bindtouchend="listTouchEnd" data-target="move-box-{{index}}">
-        <view class="cu-avatar round lg"></view>
-        <view class="content">
-          <view class="text-grey">文晓港</view>
-          <view class="text-gray text-sm">
-            <text class="cuIcon-infofill text-red"></text> 消息未送达</view>
+<view style="height: 98rpx;"></view>
+
+<block wx:for="{{plans}}" wx:key="planId">
+  <view class="cu-card dynamic">
+    <view class="cu-item shadow" style='margin: 0'>
+      <view class="cu-list menu">
+        <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" bindtouchstart="listTouchStart" bindtouchmove="listTouchMove" bindtouchend="listTouchEnd" data-target="move-box-{{index}}">
+          <view class='content padding' style='min-height:6.4em;'>
+            <view class='text-content text-gray' style='float:right;margin-top:10rpx'>{{item.dueAt}}</view>
+            <view class='text-content padding-top-xs'>
+              <text wx:if="{{item.importanceLevel == 1}}" class="cu-tag radius bg-olive light">重要：一级</text>
+              <text wx:if="{{item.importanceLevel == 2}}" class="cu-tag radius bg-green light">重要：二级</text>
+              <text wx:if="{{item.importanceLevel == 3}}" class="cu-tag radius bg-yellow light">重要：三级</text>
+              <text wx:if="{{item.importanceLevel == 4}}" class="cu-tag radius bg-orange light">重要：四级</text>
+              <text wx:if="{{item.importanceLevel == 5}}" class="cu-tag radius bg-red light">重要：五级</text>
+
+              <text wx:if="{{item.urgentLevel == 1}}" class="cu-tag radius bg-olive light">紧急：一级</text>
+              <text wx:if="{{item.urgentLevel == 2}}" class="cu-tag radius bg-green light">紧急：二级</text>
+              <text wx:if="{{item.urgentLevel == 3}}" class="cu-tag radius bg-yellow light">紧急：三级</text>
+              <text wx:if="{{item.urgentLevel == 4}}" class="cu-tag radius bg-orange light">紧急：四级</text>
+              <text wx:if="{{item.urgentLevel == 5}}" class="cu-tag radius bg-red light">紧急：五级</text>
+            </view>
+            <view class='text-content padding-top'>{{item.planContent}}</view>
+          </view>
+          <view class="move">
+            <view wx:if="{{0==tabCur}}" bindtap='toFinishPlan' data-plan-id="{{item.planId}}" class="bg-blue">完成</view>
+            <view wx:if="{{0==tabCur}}" bindtap='toCanclePlan' data-plan-id="{{item.planId}}" class="bg-red">取消</view>
+            <view wx:if="{{1==tabCur || 2==tabCur}}" bindtap='toDeletePlan' data-plan-id="{{item.planId}}" class="bg-red">删除</view>
+          </view>
         </view>
-        <view class="action">
-          <view class="text-grey text-xs">22:20</view>
-          <view class="cu-tag round bg-grey sm">5</view>
-        </view>
-        <view class="move" wx:if="{{1!=tabCur}}">
-          <view wx:if="{{0==tabCur}}" class="bg-blue">完成</view>
-          <view wx:if="{{0==tabCur}}" class="bg-red">取消</view>
-          <view wx:if="{{2==tabCur}}" class="bg-red">删除</view>
-        </view>
-      </view>
-      <view class='height1'></view>
-    </block>
-    <view wx:if="{{plans.length===0}}" class="flex-sub text-center">
-      <view class="solid-bottom text-sm padding">
-        <text wx:if="{{loading}}" class="text-grey">正在加载</text>
-        <text wx:else class="text-grey">无记录</text>
       </view>
     </view>
   </view>
-
-  <view class='cu-tabbar-height'></view>
+  <view class='height1'></view>
+</block>
+<view wx:if="{{plans.length===0}}" class="flex-sub text-center">
+  <view class="solid-bottom text-sm padding">
+    <text wx:if="{{loading}}" class="text-grey">正在加载</text>
+    <text wx:else class="text-grey">无记录</text>
+  </view>
 </view>
+
+<view class='cu-tabbar-height'></view>

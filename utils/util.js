@@ -1,6 +1,6 @@
-// const baseUrl = 'https://todo.yeetong.cn';
-const baseUrl = 'http://192.168.1.105:9191';
-// const baseUrl = 'http://192.168.31.144:9091';
+const baseUrl = 'https://todo.yeetong.cn';
+// const baseUrl = 'http://192.168.1.105:9191';
+// const baseUrl = 'http://192.168.31.144:9191';
 function request(url, data = {}, method = "POST") {
   return new Promise(function (resolve, reject) {
     const token = wx.getStorageSync('token');

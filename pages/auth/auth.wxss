@@ -1,5 +1,5 @@
 .UCenter-bg {
-  background-image: url(https://image.weilanwl.com/color2.0/index.jpg);
+  background-image: url(https://static.yeetong.cn/material/imgs/5cdabda7e4b042e77c307996-yeetong);
   background-size: cover;
   height: 700rpx;
   display: flex;
@@ -31,4 +31,5 @@
 .UCenter-bg image {
   width: 250rpx;
   height: 250rpx;
+  margin-bottom: 33rpx;
 }

@@ -15,5 +15,8 @@
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
   },
+  "navigateToMiniProgramAppIdList": [
+    "wxb4bab327bf7710a4"
+  ],
   "sitemapLocation": "sitemap.json"
 }

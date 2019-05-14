@@ -40,6 +40,7 @@ Page({
       transformOrigin: '100% 50% 0'
     })
   },
+
   navChange(e) {
     const _this = this;
     _this.animation.rotate(90).step().rotate(0).step();

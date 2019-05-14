@@ -2,7 +2,7 @@
 var util = require('../utils/util.js')
 
 module.exports = {
-  getData: (status, page) => {
+  getData: (page, status) => {
     return util.post('/wxmp/api/plan/data', {
       status: status,
       page: page
