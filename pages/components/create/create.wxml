@@ -1,5 +1,53 @@
-<cu-custom bgColor="bg-gradual-red" isBack="{{false}}"><view slot="content">创建计划</view></cu-custom>
+
+  <cu-custom bgColor="bg-gradual-red" isBack="{{false}}"><view slot="content">创建计划</view></cu-custom>
+
+<form report-submit="{{true}}" report-submit-timeout="{{1000}}" bindsubmit="toSubmit">
 
 
+<view class="cu-card dynamic">
+  <view class="cu-item shadow">
+    <view class="cu-form-group align-start">
+      <view class="title">计划内容</view>
+      <textarea maxlength="220" auto-focus="{{true}}" name="planContent" placeholder="请输入计划内容">{{planContent}}</textarea>
+    </view>
 
-<view class='cu-tabbar-height'></view>
+    <view class="cu-form-group">
+      <view class="title">重要程度</view>
+      <view>
+        <view data-val='1' bindtap='onChangeImportanceLevel' class="cu-tag radius bg-{{importanceLevel == 1 ? 'olive':'grey'}} light">一级</view>
+        <view data-val='2' bindtap='onChangeImportanceLevel' class="cu-tag radius bg-{{importanceLevel == 2 ? 'green':'grey'}} light">二级</view>
+        <view data-val='3' bindtap='onChangeImportanceLevel' class="cu-tag radius bg-{{importanceLevel == 3 ? 'yellow':'grey'}} light">三级</view>
+        <view data-val='4' bindtap='onChangeImportanceLevel' class="cu-tag radius bg-{{importanceLevel == 4 ? 'orange':'grey'}} light">四级</view>
+        <view data-val='5' bindtap='onChangeImportanceLevel' class="cu-tag radius bg-{{importanceLevel == 5 ? 'red':'grey'}} light">五级</view>
+      </view>
+    </view>
+    
+    <view class="cu-form-group">
+      <view class="title">紧急程度</view>
+      <view>
+        <view data-val='1' bindtap='onChangeUrgentLevel' class="cu-tag radius bg-{{urgentLevel == 1 ? 'olive':'grey'}} light">一级</view>
+        <view data-val='2' bindtap='onChangeUrgentLevel' class="cu-tag radius bg-{{urgentLevel == 2 ? 'green':'grey'}} light">二级</view>
+        <view data-val='3' bindtap='onChangeUrgentLevel' class="cu-tag radius bg-{{urgentLevel == 3 ? 'yellow':'grey'}} light">三级</view>
+        <view data-val='4' bindtap='onChangeUrgentLevel' class="cu-tag radius bg-{{urgentLevel == 4 ? 'orange':'grey'}} light">四级</view>
+        <view data-val='5' bindtap='onChangeUrgentLevel' class="cu-tag radius bg-{{urgentLevel == 5 ? 'red':'grey'}} light">五级</view>
+      </view>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">预计完成日期</view>
+      <picker name="dueAt" mode="date" value="{{dueAt}}" bindchange="onDateChange">
+        <view class="picker">
+          {{dueAt}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="padding flex flex-direction">
+      <button form-type="submit" disabled='{{loading}}' class="cu-btn bg-gradual-green shadow-blur lg">创建新计划</button>
+    </view>
+  </view>
+</view>
+
+
+</form>
+
+  <view class='cu-tabbar-height'></view>

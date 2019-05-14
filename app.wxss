@@ -5,6 +5,11 @@
   height: 100vh;
 }
 
+.height1 {
+  width: 750rpx;
+  height: 1rpx;
+}
+
 .nav-list {
   display: flex;
   flex-wrap: wrap;

@@ -1,3 +1,13 @@
+.about-title {
+  position: absolute;
+  top: 168rpx;
+  z-index: 99999999;
+  width: 750rpx;
+  color: #fff;
+  font-size: 40rpx;
+  font-weight: 100;
+}
+
 .zan {
   font-size: 62rpx;
 }

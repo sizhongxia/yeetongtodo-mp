@@ -1,13 +1,12 @@
 
 <image src='/images/index-head.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
-
-<view class='margin-xl bg-white padding-xl radius shadow-lg' style='margin-top: -20rpx;'>
-  <view class='text-center margin-bottom text-lg  text-grey'>关于小程序</view>
+<view class='text-center about-title'>关于小程序</view>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
   <view class='text-content'>
     <view>Hi！您好~ 欢迎使用TODO计划小程序！</view>
-    <view class='margin-top-sm'>该项目前端使用ColorUI微信小程序组件库，在此感谢作者@文晓港的无私奉献。</view>
     <view class='margin-top-sm'>TODO计划小程序旨在更加关注您的计划，提高您的学习及工作效率。</view>
     <view class='margin-top-sm'>您可以使用小程序添加您的待办任务、设置任务的紧急/重要优先级、设置任务通知。</view>
+    <view class='margin-top-sm'>项目前端使用ColorUI微信小程序组件库，在此感谢作者@文晓港的无私奉献。</view>
     <view class='margin-top-sm'>更多功能敬请期待！</view>
     <view class='text-center margin-top-xl'>
      <text class="cuIcon-appreciatefill {{isZan ? 'text-red':''}} zan"></text>
